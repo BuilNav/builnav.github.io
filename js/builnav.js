@@ -223,6 +223,19 @@
     else { var ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta); done(); }
   });
 
+
+  /* ---- in-text links: group tabs (#method-gN) and numbered references (#ref-N) ---- */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#method-g"], a[href^="#ref-"]') : null;
+    if (!a) return;
+    var h = a.getAttribute('href').slice(1);
+    if (h.indexOf('method-g') === 0) {
+      var tb = $('[role=tab][data-hash="' + h + '"]'); if (tb) { tb.click(); var m = $('#method'); if (m) { e.preventDefault(); m.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); } }
+    } else {
+      var d = $('#refs'); if (d) { d.open = true; var li = document.getElementById(h); if (li) { e.preventDefault(); li.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); history.replaceState(null, '', '#' + h); } }
+    }
+  });
+
   /* ---- deep link to a method / result tab ---- */
   var h = location.hash.slice(1);
   if (h) { var tabBtn = $('[role=tab][data-hash="' + h + '"]'); if (tabBtn) tabBtn.click(); }

@@ -184,7 +184,7 @@ figcaption { margin-top: .6rem; font-size: .92rem; color: var(--ink3); }
 .pill i { font: 500 11px/1 var(--mono); font-style: normal; opacity: .6; margin-right: .5em; }
 .m-panel[hidden] { display: none; }
 .m-intro { max-width: 52rem; margin: 0 auto 1.6rem; text-align: center; color: var(--ink2); font-size: 1.05rem; }
-.m-block { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: 2.2rem; align-items: center; padding: 1.4rem; margin: 0 auto 1.1rem; max-width: 1180px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); }
+.m-block { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 2.2rem; align-items: start; padding: 1.4rem; margin: 0 auto 1.1rem; max-width: 1180px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); }
 .m-block:nth-of-type(even) .m-text { order: 2; }
 .m-text h3 { margin: 0 0 .5rem; font-size: 1.35rem; line-height: 1.2; color: var(--ink); font-weight: 600; }
 .m-text h3 i { display: inline-block; min-width: 2.2em; font: 500 .75rem/1 var(--mono); font-style: normal; color: var(--ink3); vertical-align: .15em; }
@@ -193,6 +193,26 @@ figcaption { margin-top: .6rem; font-size: .92rem; color: var(--ink3); }
 .tag { display: inline-block; font: 500 .72rem/1 var(--mono); padding: 4px 7px; border-radius: 4px; background: var(--surface-3); color: var(--ink2); margin: 0 .3rem .3rem 0; }
 .m-media { display: grid; gap: 10px; }
 .m-media.two { grid-template-columns: 1fr 1fr; }
+
+
+/* method text = the paper's paragraph, with numbered citations; media follows the reader while the paragraph is read */
+.m-lead { max-width: 62rem; margin: 0 auto 1.8rem; font-size: 1.05rem; color: var(--ink2); }
+.m-body p { margin: 0 0 .7rem; font-size: 1.02rem; line-height: 1.62; }
+.m-body code, .m-lead code { font: 500 .88em var(--mono); background: var(--surface-3); padding: 1px 5px; border-radius: 4px; }
+a.cite { font: 500 .8em var(--mono); padding: 0 1px; }
+.m-media { position: sticky; top: calc(var(--bar) + 14px); align-self: start; }
+.m-still { margin: .4rem 0 0; }
+.m-still img { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); border: 1px solid var(--rule2); background: var(--surface-2); }
+.m-still figcaption { margin-top: .3rem; font-size: .8rem; }
+.rt, .il { display: inline-block; font: 600 .68rem/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: 4px 7px; border-radius: 4px; margin-right: .4rem; vertical-align: .1em; }
+.rt { background: var(--good-tint); color: var(--good); }
+.il { background: color-mix(in srgb, #e0a34a 22%, transparent); color: #b87400; }
+details.refs { max-width: 1180px; margin: 1.6rem auto 0; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius-sm); padding: .9rem 1.2rem; }
+details.refs summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+details.refs ol { margin: .8rem 0 0; padding-left: 1.6rem; font-size: .9rem; color: var(--ink2); }
+details.refs li { margin: 0 0 .45rem; }
+details.refs li:target { background: var(--hl); }
+@media (max-width: 1000px) { .m-media { position: static; } }
 
 /* ---------- results ---------- */
 .r-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin: 0 0 1.4rem; }
